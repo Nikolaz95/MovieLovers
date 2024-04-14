@@ -1,0 +1,209 @@
+
+
+.content-FavActor {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+}
+
+
+.head-FavActor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 20px;
+    /* border: 1px solid black; */ /* izbrisat poslije */
+}
+
+
+.notfi-FavActor {
+    position: relative;
+    top: -10px;
+    padding: 5px;
+    border-radius: 50%;
+    font-weight: bold;
+    color: white;
+    background-color: yellowgreen;
+}
+
+.FavActor-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    padding: 30px;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+.FavActor-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    padding-bottom: 10px;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px solid black; /* izbrisat poslije */
+}
+
+.FavActor-cardtop, .FavActor-img {
+    border-radius: 20px;
+    height: 400px;
+    width: 100%;
+}
+
+.FavActor-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.FavActor-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.btnFavActor-addrmv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+@media only screen and (max-width: 1600px) {
+    .FavActor-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        justify-items: center;
+        padding: 30px;
+        gap: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .content-FavActor {
+      top: 185px;
+      position: relative;
+    }
+}
+
+
+@media only screen and (max-width: 1226px) {
+    .FavActor-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        padding: 30px;
+        gap: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 815px) {
+    .FavActor-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 30px;
+        gap: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 470px) {
+    .FavActor-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .FavActor-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        padding-bottom: 10px;
+        gap: 10px;
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+}
+
+
+@media only screen and (max-width: 413px) {
+    .FavActor-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .FavActor-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 280px;
+        padding-bottom: 10px;
+        gap: 10px;
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .FavActor-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .FavActor-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        padding-bottom: 10px;
+        gap: 10px;
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+}
+
+
+@media only screen and (max-width: 375px) {
+    .FavActor-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .FavActor-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        padding-bottom: 10px;
+        gap: 10px;
+        border-radius: 20px;
+        border: 1px solid black;
+    }
+}

@@ -1,0 +1,119 @@
+
+
+
+
+.contentProfile {
+    padding: 20px;
+   /*  min-height: 80vh; */
+}
+
+.main-contentProfile {
+    padding: 20px;
+    /* border: 1px solid  black; */
+}
+
+.head-AcoutProfile {
+    padding: 20px;
+}
+
+.account-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px;
+    gap: 40px;
+}
+
+.Profileimg{
+    border-radius: 100px;
+    border: 1px solid black;
+    width: 350px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.addCamera {
+    position: relative;
+    top: 15px;
+    right: 80px;
+    /* top: 620px; */
+    width: 55px;
+    height: 55px;
+    /* left: 780px; */
+    cursor: pointer;
+}
+
+.account-info {
+    text-align: center;
+    font-size: 20px;
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .main-contentProfile {
+      top: 185px;
+      position: relative;
+    }
+}
+
+
+
+@media only screen and (max-width: 503px) {
+
+    .addCamera {
+        position: relative;
+    top: -48px;
+    left: 284px;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    }
+}
+
+
+@media only screen and (max-width: 420px) {
+    .Profileimg {
+        border-radius: 100px;
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+        cursor: pointer;
+    }
+
+    .addCamera {
+        position: relative;
+    top: -48px;
+    left: 220px;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .Profileimg {
+        border-radius: 100px;
+        border: 1px solid black;
+        width: 250px;
+        height: 280px;
+        cursor: pointer;
+    }
+
+    .addCamera {
+        position: relative;
+    top: -48px;
+    left: 175px;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    }
+}
+
+
+
+
+
+
+
+

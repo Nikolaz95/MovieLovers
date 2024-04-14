@@ -1,0 +1,196 @@
+
+
+
+
+
+.content-RatingList {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+}
+
+
+.head-RatingList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 20px;
+    /* border: 1px solid black; */ /* izbrisat poslije */
+}
+
+.notfi-RatingList {
+    position: relative;
+    top: -10px;
+    padding: 5px;
+    border-radius: 50%;
+    font-weight: bold;
+    color: white;
+    background-color: yellowgreen;
+}
+
+
+.RatingList-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    justify-items: center;
+    border: 1px solid black; /* izbrisat poslije */
+}
+
+
+.RatingList-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    padding-bottom: 10px;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px solid black; /* izbrisat poslije */
+}
+
+.allmoviesRatingList-cardtop, .RatingList-img{
+    border-radius: 20px;
+    height: 400px;
+    width: 100%;
+}
+
+
+.RatingListcard-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.btnRatingList-addrmv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+@media only screen and (max-width: 1600px) {
+    .RatingList-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 10px;
+        gap: 20px;
+        justify-items: center;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 1300px) {
+    .content-RatingList {
+      top: 185px;
+      position: relative;
+    }
+}
+
+
+@media only screen and (max-width: 1226px) {
+    .RatingList-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        padding: 10px;
+        gap: 20px;
+        justify-items: center;
+    }
+}
+
+
+@media only screen and (max-width: 815px) {
+    .RatingList-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 20px;
+        justify-items: center;
+    }
+}
+
+@media only screen and (max-width: 445px) {
+    .RatingList-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .RatingList-card {
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    padding-bottom: 10px;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    }
+}
+
+
+@media only screen and (max-width: 380px) {
+    .RatingList-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .RatingList-card {
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    padding-bottom: 10px;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    }
+}
+
+@media only screen and (max-width: 345px) {
+    .RatingList-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 20px;
+        justify-items: center;
+    }
+
+    .RatingList-card {
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    padding-bottom: 10px;
+    gap: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    }
+}
+
+
+
+
+
+
+
+
+
+

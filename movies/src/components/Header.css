@@ -1,0 +1,227 @@
+
+
+
+
+
+
+header {
+  /* background: transparent;
+  background: rgb(159,250,255);
+  background: radial-gradient(circle, rgba(159,250,255,1) 0%, rgba(187,255,89,1) 50%, rgba(0,255,252,1) 100%); */
+  background-color: wheat;
+    width: 100%;
+    padding: 10px;
+    top: 0;
+    z-index:34234234223;
+}
+
+.content-header  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+
+/* nav bar */
+
+
+a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+  
+.no-underline {
+    text-decoration: none ;
+}
+
+.navbar  {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style: none;
+    align-items: center;
+
+    /* border: 1px solid black; */
+}
+
+.navbar li .active{
+   /*  border: 1px solid black; */
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    /* padding: 15px; */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.navbar li:active {
+ 
+}
+
+.navbar ul li .active {
+  background: linear-gradient(to right,#c0fecf 0,#1ed5a9 100%);
+  font-weight: bold;
+  padding: 15px;
+}
+
+.navbar ul li a:not(.active):hover {
+  background-color: transparent;
+}
+  
+
+.navigation-style {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+
+.icon-navigation {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+
+/* ham nevidljiv */
+.ham-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor:pointer;
+    padding: 4px;
+    color:#ffffff; 
+}
+  
+.bar1, .bar2, .bar3{  
+    display:flex;  
+    width:50px;  
+    height:5px;  
+    margin:5px auto;  
+    background-color:#ffffff;  
+    transition: 0.4s;  
+}
+
+
+/* ham nevidljiv */
+
+
+ /* responsive navbar styling */
+
+ @media  screen and (max-width: 1300px) {
+    header {
+    background-color: rgb(207, 234, 124);
+    width: 100%;
+    padding: 20px;
+    top: 0;
+    position: fixed;
+    z-index:34234234223;
+  }
+  
+  .content-header {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    justify-content: space-between;
+    font-size: 20px;
+  }
+
+  .content-body {
+    top: 185px;
+    position: relative;
+  }
+  
+  
+  /* navBar mob */
+  
+.navbar  {  
+    display: none;
+    /* position:absolute;   */ 
+    /* top:10vh;  
+    right:8px; */  
+    flex-direction:row;  
+    /* border-radius:0px 0px 0px 20px;   */
+    /* transition: 3s ease;  */ 
+    /* transform:translate(100%);    */ 
+    width: 300px;
+}
+
+.navbar.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 50%;
+  position: fixed;
+  top: 185px;
+  left: 0px;
+  color: black;
+  background: rgb(159,250,255);
+  background: radial-gradient(circle, rgba(159,250,255,1) 0%, rgba(187,255,89,1) 50%, rgba(0,255,252,1) 100%);
+  z-index: 999;
+}
+
+.navbar.active ul {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+}
+
+.navbar.active li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar.close{
+  animation: close 2s ease 0s 1 normal forwards;
+}
+
+
+.navbar.active{
+  animation: open .5s cubic-bezier(.25,.46,.45,.94) both}
+
+  .navbar.close {
+  animation: close .5s ease 0s 1 normal forwards;
+}
+
+@keyframes open
+{0%{transform:scale(0);transform-origin:100% 0;opacity:1}
+100%{transform:scale(1);transform-origin:100% 0;opacity:1}}
+  
+  /* ham menu mob  animacija strelica*/
+     
+     .ham-menu {  
+      display:block;  
+     }
+  
+     .ham-menu.active .bar1 {  
+      transform: rotate(45deg) translate(8px,3px);  
+     }  
+     .ham-menu.active .bar2 {  
+      opacity: 0;  
+     }  
+     .ham-menu.active .bar3 {  
+      transform: rotate(-45deg) translate(8px,-3px);  
+     }
+   }
+  
+  /* ham menu mob */
+  
+  
+   /* responsive navbar styling */ /* kraj */
+

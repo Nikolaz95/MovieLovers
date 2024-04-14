@@ -1,0 +1,256 @@
+
+
+
+.tabs-contentProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+   /*  border: 1px solid black; */
+    border-radius: 20px;
+    /* background-color: rgb(209, 174, 103); */
+}
+
+.tabs-navigation {
+    position: relative;
+    background-color: rgb(220, 243, 88);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 0 5px 0 5px;
+    gap: 10px;
+}
+
+.notification {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	margin-left: 0.75rem;
+	border-radius: 50%;
+	background-color: rgba(111, 255, 0, 0.651);
+	transition: 0.15s ease-in;
+}
+
+
+
+.tabs-navigation ul {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.tabs-navigation ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.tabs-navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.tabs-navigation ul li .active  {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    background: linear-gradient(to right,#c0fecf 0,#1ed5a9 100%);
+    box-shadow: rgba(7, 7, 206, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+
+/* arrows style */
+
+.tabs-navigation-arrows {
+    display: none;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+
+.arrow-left {
+   color: blue;
+   font-size: 25px;
+   cursor: pointer;
+}
+
+
+.arrow-right {
+    color: blue;
+    font-size: 25px;
+    cursor: pointer;
+    
+}
+.navbar-content li{
+    /* border: 1px solid black; */
+}
+
+
+
+
+@media only screen and (max-width: 1335px) {
+
+    .tabs-navigation-arrows {
+        display: flex;
+        align-items: center;
+    }
+
+    .tabs-navigation {
+        width: 100%;
+    }
+    
+    .navbar-content {
+    width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+
+}
+
+@media only screen and (max-width: 1100px) {
+    .tabs-navigation-arrows {
+        display: flex;
+        align-items: center;
+    }
+
+    .tabs-navigation {
+        position: relative;
+        width: 100%;
+    }
+    
+    .navbar-content {
+    width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+}
+
+
+/* @media only screen and (max-width: 830px) {
+    .tabs-navigation-arrows {
+        display: flex;
+        align-items: center;
+    }
+
+    .tabs-navigation {
+        position: relative;
+        width: 438px;
+    }
+    
+    .navbar-content {
+    width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+} */
+
+
+
+
+/* @media only screen and (max-width: 1000px) {
+
+    .tabs-navigation-arrows {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-Profile {
+        width: 612px;
+        overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+    }
+
+} */
+
+
+
+/* @media only screen and (max-width: 800px) {
+
+    .tabs-navigation-arrows {
+        display: flex;
+        align-items: center;
+    }
+
+    .tabs-navigation {
+        display: flex;
+        align-items: center;
+        width: 80%;
+    }
+
+    .navbar-Profile {
+        
+        overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+    }
+
+} */
+
+
+/* @media only screen and (max-width: 650px) {
+
+    .tabs-navigation-arrows {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-Profile {
+        width: 370px;
+        overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+    }
+
+} */
+
+
+/* @media only screen and (max-width: 550px) {
+
+    .tabs-navigation-arrows {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-Profile {
+        width: 300px;
+        overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+    }
+
+} */
+
+
+
+
+
+
+
+

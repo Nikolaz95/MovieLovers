@@ -1,0 +1,140 @@
+
+
+.cr-acc {
+    padding: 60px 20px;
+    /* border: 1px solid black; */
+    min-height: 80vh;
+    background-color: rgb(137, 211, 94);
+}
+
+.title-account {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.content-accountcard {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    flex-direction: column;
+
+}
+
+
+.account-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.41);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(11.7px);
+-webkit-backdrop-filter: blur(11.7px);
+}
+
+.singIn {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.arow-singin {
+    font-size: 20px;
+}
+
+
+.create-accBtn {
+    width: 100%;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(28, 126, 28);
+    border-radius: 20px;
+}
+
+
+
+/* text validation */
+.username-sucCr, .email-sucCr, .passw-sucCr {
+    display: none;
+    padding: 2px;
+    background-color: yellowgreen;
+    font-size: 25px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+  }
+
+  .username-errorCr, .email-errorCr, .passw-errorCr {
+    display: none;
+    padding: 2px;
+    background-color: red;
+    font-size: 25px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 1300px) {
+    .cr-acc {
+      top: 185px;
+      position: relative;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .cr-acc {
+      top: 185px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .content-accountcard {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        width: 280px;
+        gap: 30px;
+        flex-direction: column;
+    }
+
+    .account-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 280px;
+        padding: 20px;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.41);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(11.7px);
+        -webkit-backdrop-filter: blur(11.7px);
+    }
+
+    .form-registering {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        width: 260px;
+        gap: 10px;
+    }
+
+
+}
+

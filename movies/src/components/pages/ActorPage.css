@@ -1,0 +1,267 @@
+
+
+
+section {
+  padding: 20px;
+}
+
+.actorsPAge-content {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding: 50px 30px;
+}
+
+
+.Actors-left {
+    display: flex;
+    flex-direction: column;
+    /* border:  1px solid black; */
+}
+
+.details-Actors {
+    display: flex;
+    margin-top: 30px;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    background: #e8e8e8;
+box-shadow:  20px 20px 60px #ebeaea,-20px -20px 60px #ffffff;
+    /* border: 1px solid black; */
+}
+
+.Actors-img {
+  height: 600px;
+  width: 500px;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.Actors-biography {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px 30px;
+  /* border: 1px solid black; */
+}
+
+
+
+.Actors-biography p {
+    padding: 15px 0;
+    font-size: 25px;
+
+}
+
+.biografi {
+  font-weight: bold;
+  padding: 10px;
+  background-color: white;
+  border-radius: 50px;
+background: #e8e8e8;
+box-shadow:  20px 20px 60px #ebeaea,-20px -20px 60px #ffffff;
+}
+
+
+/* filmovi glumca */
+
+
+.title-Actors {
+  padding: 20px;
+}
+
+.Actors-rightBottom {
+  gap: 50px;
+  padding: 50px 30px;
+  margin: 10px;
+  /* border: 1px solid black; */
+}
+
+.Actorsmovies-card {
+    min-height: 550px;
+  max-width: 269px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.Actorsmovies-img {
+    border-radius: 20px;
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.Actorsmovies-bottom {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  gap: 10px;
+}
+
+.Actorsmovies-name, .Actorsmovies-rating, .Actorsmoviesicon-favorit {
+    font-size: 20px;
+}
+
+
+.ActorsmoviesAdd-watchlist {
+    background:linear-gradient(to bottom, #12a2b5 5%, #378591 100%);
+  background-color:#12a2b5;
+  border-radius:20px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px;
+  text-decoration:none;
+}
+
+.ActorsmoviesAdd-watchlist:hover {
+    background:linear-gradient(to bottom, #378591 5%, #12a2b5 100%);
+  background-color:#378591;
+}
+
+
+.ActorsmoviesAdd-watchlist:active {
+    position:relative;
+  top:1px;
+}
+
+
+
+@media only screen and (max-width: 1300px) {
+  .actorsPAge-content {
+    top: 185px;
+    position: relative;
+  }
+
+  .Actors-rightBottom {
+    top: 185px;
+    position: relative;
+  }
+
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .actorsPAge-content {
+    display: flex;
+    flex-direction: column;
+    top: 185px;
+    position: relative;
+    align-items: center;
+  }
+
+  .Actors-rightBottom {
+    top: 185px;
+    position: relative;
+  }
+
+  .Actors-biography {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 30px;
+    align-items: center;
+}
+}
+
+
+
+@media only screen and (max-width: 550px) {
+  .actorsPAge-content {
+    display: flex;
+    flex-direction: column;
+    top: 185px;
+    position: relative;
+    align-items: center;
+  }
+
+  .Actors-img {
+    height: 550px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+  .Actors-rightBottom {
+    top: 185px;
+    position: relative;
+  }
+
+  .Actors-biography {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 30px;
+    align-items: center;
+}
+}
+
+@media only screen and (max-width: 430px) {
+  .actorsPAge-content {
+    display: flex;
+    flex-direction: column;
+    top: 185px;
+    position: relative;
+    align-items: center;
+  }
+
+  .Actors-img {
+    height: 450px;
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+  .Actors-rightBottom {
+    top: 185px;
+    position: relative;
+  }
+
+  .Actors-biography {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 30px;
+    align-items: center;
+}
+}
+
+
+
+@media only screen and (max-width: 390px) {
+  .actorsPAge-content {
+    display: flex;
+    flex-direction: column;
+    top: 185px;
+    position: relative;
+    align-items: center;
+  }
+
+  .Actors-img {
+    height: 350px;
+    width: 280px;
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+  .Actors-rightBottom {
+    top: 185px;
+    position: relative;
+  }
+
+  .Actors-biography {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 30px;
+    align-items: center;
+}
+}
+
+

@@ -1,0 +1,651 @@
+
+
+/* .movieDetails-content {
+    
+} */
+
+
+.movieDetails-topPart {
+    -webkit-mask-image: linear-gradient(180deg,#000,transparent);
+      position: relative;
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+}
+
+.Poster-movie {
+    width: 100%;
+}
+
+
+.movieDetails-MovieInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    gap: 50px;
+    padding: 20px;
+    top: -150px;
+}
+
+.movieDetails-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.poster-box {
+    width: 350px;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 100px 34px rgba(0,0,0,0.1);
+}
+
+.Prowiders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.prowider {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    text-align: center;
+}
+
+.prowider-img {
+    width: 100px;
+    height: 100px;
+}
+
+.movieDetails-right {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+    position: relative;
+    top: -120px;
+    /* border: 1px solid black; */
+}
+
+
+.overview, .tagline {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.movieDetails-rightTop {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movieDetails-genres {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.genres {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    font-weight: bold;
+
+}
+
+.facts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.facts-top {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.status, .release {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    font-weight: bold;
+}
+
+.facts-midle {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.runtime, .rating {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    font-weight: bold;
+}
+
+.movieDetails-rightMidle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 120px;
+}
+
+.movieDetails-rightBotom {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.movieDetails-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+}
+
+
+.favorite-btn,
+ .watchlist-btn {
+    background-color: rgb(240,240,240);
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.favorite-btn:active,
+ .watchlist-btn:active {
+    position:relative;
+	top:1px;
+}
+
+.icon-favorite, .icon-watchlist {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+
+/* css recommendations */
+
+.recommendations {
+    padding: 20px;
+}
+
+/* css slike */
+
+.section-pitcutreOfMovie {
+    padding: 20px;
+}
+
+.content-pitcutreOfMovie {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.pitcutreOfMovieImg {
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+}
+
+
+/* css video */
+
+.section-videosOfMovie {
+    padding: 20px;
+}
+
+.content-videosOfMovie {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    margin-right: 10px;
+}
+
+.videosOfMovieMp4 {
+    /* width: 100%; */
+    /* width: 500px; */
+    /* border: 4px solid rgb(148, 0, 0); */
+    /* height: 550px; */
+    border-radius: 20px;
+}
+
+
+/* reviews  */
+
+.section-Reviews {
+    padding: 20px;
+}
+
+.title-Reviews {
+    padding-bottom: 10px;
+}
+
+.content-Reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-Review {
+    display: flex;
+    width: 100%;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.inner-Review {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; 
+    border: 1px solid black; /* izbrisat poslije */
+}
+
+.icon-Review {
+   display: flex;
+
+   border-radius: 20px;
+    width: 80px;
+    height: 80px;
+}
+
+.innerRight-Review {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.innerRight-ReviewTop {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+.innerRight-ReviewBoton {
+    border: 1px solid black;
+    padding: 10px;
+    width: 90%;
+}
+
+.ReviewButon {
+    background-color: red;
+    color: white;
+}
+
+.ReviewButon-icon {
+    width: 30px;
+    height: 30px;
+}
+
+
+@media  screen and (max-width: 1300px) {
+    .movieDetails-content {
+        top: 185px;
+        position: relative;
+    }
+    .Poster-movie {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+}
+
+
+@media  screen and (max-width: 1200px) {
+    .Poster-movie {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+    }
+}
+
+
+@media  screen and (max-width: 1000px) {
+    .Poster-movie {
+        width: 100%;
+        height: 450px;
+        object-fit: cover;
+    }
+}
+
+
+@media  screen and (max-width: 800px) {
+    .Poster-movie {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .movieDetails-MovieInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movieDetails-left {
+        position: relative;
+        top: 80px;
+    }
+
+    .movieDetails-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 60px;
+    }
+}
+
+
+@media  screen and (max-width: 650px) {
+    .Poster-movie {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+    
+    .movieDetails-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 60px;
+    }
+}
+
+@media  screen and (max-width: 520px) {
+    .innerRight-Review {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .innerRight-ReviewButon {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .innerRight-ReviewTop {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        gap: 20px;
+        border: 1px solid black;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+}
+
+
+@media  screen and (max-width: 500px) {
+    .Poster-movie {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+    }
+
+    .movieDetails-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 60px;
+    }
+}
+
+@media  screen and (max-width: 450px) {
+    .Poster-movie {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .movieDetails-MovieInfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .poster-box {
+        width: 350px;
+    height: 400px;
+    }
+
+    .movieDetails-right{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+    }
+
+    .movieDetails-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media  screen and (max-width: 420px) {
+    .Poster-movie {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .poster-box {
+        width: 300px;
+    height: 400px;
+    position: relative;
+        top: 30px;
+    }
+
+    .Prowiders-list {
+        position: relative;
+        top: 30px;
+    }
+
+    .movieDetails-right{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 70px;
+        width: 350px;
+    }
+
+    .inner-Review {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border: 1px solid black;
+        align-items: center;
+    }
+
+    .innerRight-Review {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+        align-items: center;
+
+    }
+
+    .innerRight-ReviewButon {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .innerRight-ReviewTop {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        gap: 20px;
+        border: 1px solid black;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+
+ 
+}
+
+
+@media  screen and (max-width: 400px) {
+    .Poster-movie {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .movieDetails-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .poster-box {
+    width: 290px;
+    height: 400px;
+    position: relative;
+    top: 30px;
+    }
+
+    .movieDetails-rightBotom {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+@media  screen and (max-width: 380px) {
+    .Poster-movie {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    .movieDetails-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .poster-box {
+        width: 300px;
+    height: 400px;
+    position: relative;
+        top: 30px;
+    }
+
+    .movieDetails-right{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 70px;
+        width: 300px;
+    }
+}
+
+
+@media  screen and (max-width: 350px) {
+    .Poster-movie {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .movieDetails-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .poster-box {
+        width: 300px;
+    height: 400px;
+    position: relative;
+        top: 30px;
+    }
+
+    .movieDetails-right{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 70px;
+        width: 300px;
+    }
+
+    .movieDetails-rightTop {
+        width: 300px;
+    }
+}
+
+@media  screen and (max-width: 330px) {
+    .Poster-movie {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .movieDetails-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .prowider {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .poster-box {
+        width: 280px;
+    height: 400px;
+    position: relative;
+        top: 30px;
+    }
+
+    .movieDetails-right{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        top: 70px;
+        width: 300px;
+    }
+
+    .movieDetails-rightTop {
+        width: 300px;
+    }
+}
+
+
