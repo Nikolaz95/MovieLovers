@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import errorMiddleware from "./middlewares/errors.js";
 import { connectDataBase } from "./config/dbConnect.js";
+import cookieParser from "cookie-parser";
 const app = express();
 
 // Handle  Uncaught exceptions
@@ -21,6 +22,8 @@ connectDataBase();
 
 
 app.use(express.json())
+app.use(cookieParser())
+
 
 //import all routes
 import authRoutes from "./routes/auth.js";
