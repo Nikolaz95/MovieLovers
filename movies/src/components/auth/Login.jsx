@@ -16,30 +16,14 @@ const Login = () => {
 
                     <div className="lef-registering">
                         <form className='form-registering'>
-                            <label htmlFor="name">Your username:</label>
-                            <input
-                                type="text"
-                                id='name'
-                                placeholder='username...' />
-                            <p className="username-suc">Your username is valid</p>
-                            <p className="username-error">Your username is not valid</p><br />
-                            <label htmlFor="mail">Your Emai:</label>
-                            <input
-                                type="email"
-                                id='mail'
-                                placeholder='email...' />
-                            <p className="email-suc">Your email is valid</p>
-                            <p className="email-error">Your email is not valid</p><br />
+                            <label htmlFor="mail">Your Email:</label>
+                            <input type="email" id='mail' placeholder='fake@email...' />
+
 
 
                             <label htmlFor="pwd">Password :</label>
-                            <input
-                                type="password"
-                                id='pwd'
-                                placeholder='password...'
-                            />
-                            <p className="passw-suc">Your password is valid</p>
-                            <p className="passw-error">Your password is not valid</p>
+                            <input type="password" id='pwd' placeholder='password...' />
+
                             <div className="btn-login">
                                 <button className="login">Log in</button>
                             </div>
@@ -68,8 +52,6 @@ const Login = () => {
 
                         <h1 className="registering-title">Your Favorit list</h1>
                         <p>Track everything you want to watch and receive e-mail when movies open in theaters.</p>
-
-
                     </div>
                 </div>
 

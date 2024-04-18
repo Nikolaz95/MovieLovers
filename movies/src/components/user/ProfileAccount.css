@@ -45,8 +45,11 @@
 }
 
 .account-info {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     font-size: 20px;
+    gap: 20px;
 }
 
 

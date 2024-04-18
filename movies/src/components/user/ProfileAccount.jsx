@@ -4,7 +4,6 @@ import TabNavigationProfile from '../other/TabNavigationProfile';
 
 
 //import css
-/* import "../Profile/ProfileAccount.css"; */
 import "../user/ProfileAccount.css";
 
 
@@ -39,8 +38,17 @@ const ProfileAccount = () => {
                     </div>
 
                     <div className="account-info">
-                        <p>Your Account Name:</p>
-                        <p>NIKOLA</p>
+                        <h4>User Name:</h4>
+                        <p>joe</p>
+                        {/* <p>{user?.name}</p> */}
+
+                        <h4>Email Address:</h4>
+                        <p>n@gmail.com</p>
+                        {/* <p>{user?.email}</p> */}
+
+                        <h4>Joined On</h4>
+                        <p>2024-04-18</p>
+                        {/* <p>{user?.createdAt?.substring(0, 10)}</p> */}
                     </div>
                 </div>
 
