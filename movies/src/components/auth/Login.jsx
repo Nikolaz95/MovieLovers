@@ -1,11 +1,48 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import Loader from '../layout/Loader';
+import toast from 'react-hot-toast';
+
+
+
 
 //import css
 import "../auth/Login.css";
 import MetaData from '../other/MetaData';
+import { useLoginMutation } from '../redux/api/authApi';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [login, { isLoading, error, data }] = useLoginMutation();
+
+    console.log("***************");
+    console.log(data);
+    console.log("***************");
+
+    if (isLoading) return <Loader />
+
+    useEffect(() => {
+        if (error) {
+            toast.error(error?.data?.message)
+        }
+    }, [error]);
+
+
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const loginData = {
+            email,
+            password,
+        }
+
+        login(loginData);
+    }
+
     return (
         <>
             <MetaData title={"Log in"} />
@@ -15,17 +52,26 @@ const Login = () => {
                 <div className="card-registering">
 
                     <div className="lef-registering">
-                        <form className='form-registering'>
+                        <form className='form-registering' onSubmit={submitHandler}>
                             <label htmlFor="mail">Your Email:</label>
-                            <input type="email" id='mail' placeholder='fake@email...' />
+                            <input type="email" id='mail' placeholder='fake@email...'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
 
 
 
                             <label htmlFor="pwd">Password :</label>
-                            <input type="password" id='pwd' placeholder='password...' />
+                            <input type="password" id='pwd' placeholder='password...'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
 
                             <div className="btn-login">
-                                <button className="login">Log in</button>
+                                <button type="submit" className="login" disabled={isLoading}>
+                                    {/* Log in */}
+                                    {isLoading ? "Authenticating..." : "LOGIN"}
+                                </button>
                             </div>
                         </form>
 

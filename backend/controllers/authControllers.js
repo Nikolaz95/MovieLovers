@@ -15,6 +15,10 @@ export const registerUser = catchAsyncErrors(async (req, res, next) => {
         password,
     });
 
+    console.log("*************");
+    console.log(user);
+    console.log("*************");
+
 
     sendToken(user, 201, res)
 });
@@ -34,7 +38,7 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findOne({ email }).select("+password")
 
     if (!user) {
-        return next(new ErrorHandler('Invalid Email or Password', 401))
+        return next(new ErrorHandler('Invalid Email', 401))
     }
 
     //check if password is correct 
@@ -42,10 +46,10 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
     const isPasswordMatched = await user.comparePassword(password)
 
     if (!isPasswordMatched) {
-        return next(new ErrorHandler('Invalid  email or password', 401))
+        return next(new ErrorHandler('Invalid Password', 401))
     }
 
-    sendToken(user, 200, res)
+    sendToken(user, 201, res)
 });
 
 

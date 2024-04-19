@@ -30,7 +30,7 @@ import authRoutes from "./routes/auth.js";
 
 
 
-app.use("/api/", authRoutes);
+app.use("/api", authRoutes);
 
 
 //use error middleware

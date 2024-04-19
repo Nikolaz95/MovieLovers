@@ -7,7 +7,6 @@ import User from "../models/user.js"
 
 //Checks if user is authenticated or not 
 
-
 export const isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     const { token } = req.cookies;
 
@@ -15,8 +14,9 @@ export const isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler("Login first to acces this resource", 401));
     }
 
-    /* const decoded = jwt.verify(token, process.env.JWT_SECRET)
-    req.user = await User.findById(decoded.id) */
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    req.user = await User.findById(decoded.id)
+    console.log(decoded);
 
 
     next();
