@@ -65,6 +65,24 @@ backdrop-filter: blur(11.7px);
     font-size: 20px;
   }
 
+  .pasword-content {
+    position: relative;
+  }
+
+  .pasword-content input{
+    padding: 5px 30px 5px 10px;
+  font-size: 25px;
+  width: 100%;
+  }
+
+  .pasword-content img {
+    cursor: pointer;
+  position: relative;
+  width: 25px;
+  left: 318px;
+  top: -35px;
+  }
+
 
 
   .divider-text {
@@ -132,6 +150,50 @@ backdrop-filter: blur(11.7px);
 }
 
 
+@media only screen and (max-width: 1090px) {
+  .pasword-content {
+    position: relative;
+  }
+
+  .pasword-content input{
+    padding: 5px 30px 5px 10px;
+  font-size: 25px;
+  width: 100%;
+  }
+
+  .pasword-content img {
+    cursor: pointer;
+  position: relative;
+  width: 25px;
+  left: 300px;
+  top: -35px;
+  }
+}
+
+
+
+@media only screen and (max-width: 1058px) {
+  .pasword-content {
+    position: relative;
+  }
+
+  .pasword-content input{
+    padding: 5px 30px 5px 10px;
+  font-size: 25px;
+  width: 100%;
+  }
+
+  .pasword-content img {
+    cursor: pointer;
+  position: relative;
+  width: 25px;
+  left: 290px;
+  top: -35px;
+  }
+}
+
+
+
 @media only screen and (max-width: 830px) {
   .registering-section {
     top: 185px;
@@ -151,6 +213,67 @@ backdrop-filter: blur(11.7px);
     -webkit-backdrop-filter: blur(11.7px);
 }
 
+
+.pasword-content {
+  position: relative;
+}
+
+.pasword-content input{
+  padding: 5px 30px 5px 10px;
+font-size: 25px;
+width: 100%;
+}
+
+.pasword-content img {
+  cursor: pointer;
+position: relative;
+width: 25px;
+left: 510px;
+top: -35px;
+}
+
+}
+
+
+@media only screen and (max-width: 675px) {
+  .pasword-content {
+    position: relative;
+  }
+
+  .pasword-content input{
+    padding: 5px 30px 5px 10px;
+  font-size: 25px;
+  width: 100%;
+  }
+
+  .pasword-content img {
+    cursor: pointer;
+  position: relative;
+  width: 25px;
+  left: 420px;
+  top: -35px;
+  }
+}
+
+
+@media only screen and (max-width: 591px) {
+  .pasword-content {
+    position: relative;
+  }
+
+  .pasword-content input{
+    padding: 5px 30px 5px 10px;
+  font-size: 25px;
+  width: 100%;
+  }
+
+  .pasword-content img {
+    cursor: pointer;
+  position: relative;
+  width: 25px;
+  left: 320px;
+  top: -35px;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -171,6 +294,14 @@ backdrop-filter: blur(11.7px);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(11.7px);
     -webkit-backdrop-filter: blur(11.7px);
+}
+
+.pasword-content img {
+  cursor: pointer;
+position: relative;
+width: 25px;
+left: 250px;
+top: -35px;
 }
 
 }
@@ -196,6 +327,15 @@ backdrop-filter: blur(11.7px);
     -webkit-backdrop-filter: blur(11.7px);
 }
 
+
+.pasword-content img {
+  cursor: pointer;
+position: relative;
+width: 25px;
+left: 200px;
+top: -35px;
+}
+
 }
 
 @media only screen and (max-width: 380px) {
@@ -219,6 +359,8 @@ backdrop-filter: blur(11.7px);
     align-items: center;
 
 }
+
+
 
 }
 

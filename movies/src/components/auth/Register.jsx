@@ -1,11 +1,51 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
+import Loader from '../layout/Loader';
+import toast from 'react-hot-toast';
+import MetaData from '../other/MetaData';
+import { useRegisterMutation } from '../redux/api/authApi';
 
 //import css
 import "../auth/Register.css";
-import MetaData from '../other/MetaData';
 
 const Register = () => {
+    const navigate = useNavigate()
+
+    const [user, setUser] = useState({
+        name: "",
+        email: "",
+        password: "",
+    });
+
+    const { name, email, password } = user;
+
+    const [register, { isLoading, error, data }] = useRegisterMutation();
+
+    useEffect(() => {
+
+
+        if (error) {
+            toast.error(error?.data?.message)
+        }
+    }, [error]);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const singUpData = {
+            name,
+            email,
+            password,
+        }
+
+        register(singUpData);
+    };
+
+    const onChange = (e) => {
+        setUser({ ...user, [e.target.name]: e.target.value })
+    };
+
+
     return (
         <>
             <MetaData title={"Create Account"} />
@@ -15,18 +55,32 @@ const Register = () => {
 
                 <div className="content-accountcard">
                     <div className="account-card">
-                        <form className='form-registering' >
+                        <form className='form-registering' onSubmit={submitHandler}>
                             <label htmlFor="name">Your Username:</label>
-                            <input type="text" placeholder='username...' /> <br />
+                            <input type="text" name="name" placeholder='username...'
+                                value={name}
+                                onChange={onChange}
+                            />
+                            <br />
 
                             <label htmlFor="mail">Your Emai:</label>
-                            <input type="email" id='mail' placeholder='fake@email.com' /> <br />
+                            <input type="email" name="email" id='mail' placeholder='fake@email.com'
+                                value={email}
+                                onChange={onChange}
+                            />
+                            <br />
 
                             <label htmlFor="pwd">Password :</label>
-                            <input type="password" id='pwd' placeholder='password...' />
+                            <input type="password" name="password" id='pwd' placeholder='password...'
+                                value={password}
+                                onChange={onChange}
+                            />
 
                             <div className="btn-login">
-                                <button className="create-accBtn">Create your accunt</button>
+                                <button className="create-accBtn" type="submit" disabled={isLoading}>
+                                    {isLoading ? "Creating..." : "Create your accunt"}
+                                    {/* Create your accunt */}
+                                </button>
                             </div>
                         </form>
                     </div>

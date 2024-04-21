@@ -2,33 +2,44 @@ import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import Loader from '../layout/Loader';
 import toast from 'react-hot-toast';
+import MetaData from '../other/MetaData';
+import { useLoginMutation } from '../redux/api/authApi';
 
 
 
 
 //import css
 import "../auth/Login.css";
-import MetaData from '../other/MetaData';
-import { useLoginMutation } from '../redux/api/authApi';
+
+//import  icon
+import Show from "../../assets/icons/icon-show.png"
+import Hide from "../../assets/icons/icon-hide.png"
+import { useSelector } from 'react-redux';
+
+
 
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const [login, { isLoading, error, data }] = useLoginMutation();
+    const { isAuthenticated } = useSelector((state) => state.auth);
 
     console.log("***************");
     console.log(data);
     console.log("***************");
 
-    if (isLoading) return <Loader />
 
     useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/")
+        }
         if (error) {
             toast.error(error?.data?.message)
         }
-    }, [error]);
+    }, [error, isAuthenticated]);
 
 
 
@@ -42,6 +53,8 @@ const Login = () => {
 
         login(loginData);
     }
+
+    if (isLoading) return <Loader />
 
     return (
         <>
@@ -60,17 +73,23 @@ const Login = () => {
                             />
 
 
-
                             <label htmlFor="pwd">Password :</label>
-                            <input type="password" id='pwd' placeholder='password...'
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
+                            <div className="pasword-content">
+                                <input type={showPassword ? "text" : "password"} id='pwd' placeholder='password...'
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <img
+                                    title={showPassword ? "Hide password" : "Show password"}
+                                    src={showPassword ? Hide : Show}
+                                    onClick={() => setShowPassword(prevState => !prevState)}
+                                />
+                            </div>
 
                             <div className="btn-login">
                                 <button type="submit" className="login" disabled={isLoading}>
                                     {/* Log in */}
-                                    {isLoading ? "Authenticating..." : "LOGIN"}
+                                    {isLoading ? "Authenticating..." : "Log in"}
                                 </button>
                             </div>
                         </form>

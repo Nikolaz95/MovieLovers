@@ -92,6 +92,78 @@ a {
 }
 
 
+/* code for navbar za user */
+
+.UserNavbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.userIcon {
+  width: 40px;
+  height: 40px;
+}
+
+
+.dropDownUser ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+  width: 199px;
+  top: 126px;
+  right: 1px;
+  height: 250px;
+}
+
+.dropDownUser ul a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0px 10px 0px 10px;
+}
+
+
+.dropDownUser .dropDownUser-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20px 0 20px;
+}
+
+.dropDownUser-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.arrowDrpUser {
+  transition:  0.5s;
+}
+
+.rotatedArrowUser {
+  transform: rotate(90deg);
+}
+
+
+
+/* dropdownUSer style kraj */
+
 /* ham nevidljiv */
 .ham-menu {
     display: none;
@@ -164,7 +236,7 @@ a {
   justify-content: center;
   /* border: 1px solid black; */
   width: 100%;
-  height: 50%;
+  height: 60%;
   position: fixed;
   top: 185px;
   left: 0px;
@@ -177,7 +249,6 @@ a {
 .navbar.active ul {
   display: flex;
   flex-direction: column;
-  width: 50%;
   text-align: center;
 }
 
@@ -185,6 +256,20 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* .dropDownUser {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+} */
+
+.dropDownUser ul {
+  position: relative;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 1;
 }
 
 .navbar.close{

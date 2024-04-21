@@ -6,6 +6,30 @@ export const authApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
     keepUnusedDataFor: 30,
     endpoints: (builder) => ({
+
+        register: builder.mutation({
+            query(body) {
+                return {
+                    url: "/register",
+                    method: "POST",
+                    body,
+                };
+            },
+
+            /* async onQueryStarted(args, { dispatch, queryFulfilled }) {
+                try {
+                    await queryFulfilled;
+                    await dispatch(userApi.endpoints.getMe.initiate(null))
+                } catch (error) {
+                    console.log(error)
+                }
+            }, */
+
+        }),
+
+
+
+
         login: builder.mutation({
             query(body) {
                 return {
@@ -14,8 +38,20 @@ export const authApi = createApi({
                     body,
                 };
             },
+
+            async onQueryStarted(args, { dispatch, queryFulfilled }) {
+                try {
+                    await queryFulfilled;
+                    await dispatch(userApi.endpoints.getMe.initiate(null))
+                } catch (error) {
+                    console.log(error)
+                }
+            },
+        }),
+        logout: builder.query({
+            query: () => "/logout",
         }),
     }),
 });
 
-export const { useLoginMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation, useLazyLogoutQuery } = authApi;
