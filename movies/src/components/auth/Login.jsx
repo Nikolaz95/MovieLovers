@@ -17,15 +17,19 @@ import Hide from "../../assets/icons/icon-hide.png"
 import { useSelector } from 'react-redux';
 
 
-
 const Login = () => {
     const navigate = useNavigate();
+    const { user } = useSelector((state) => state.auth);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
-    const [login, { isLoading, error, data }] = useLoginMutation();
+    const [login, { isLoading, error, data, isSuccess }] = useLoginMutation();
     const { isAuthenticated } = useSelector((state) => state.auth);
+
+    console.log("***************");
+    console.log(isAuthenticated);
+    console.log("***************");
 
     console.log("***************");
     console.log(data);
@@ -33,13 +37,21 @@ const Login = () => {
 
 
     useEffect(() => {
+
         if (isAuthenticated) {
-            navigate("/")
+            toast.success(`Welcome ${user?.name}`, {
+                style: {
+                    backgroundColor: "green",
+                    color: "#ffffff",
+                },
+            });
+            navigate("/profile")
         }
+
         if (error) {
-            toast.error(error?.data?.message)
+            toast.error(error?.data?.message);
         }
-    }, [error, isAuthenticated]);
+    }, [isAuthenticated, error, navigate]);
 
 
 
@@ -88,7 +100,6 @@ const Login = () => {
 
                             <div className="btn-login">
                                 <button type="submit" className="login" disabled={isLoading}>
-                                    {/* Log in */}
                                     {isLoading ? "Authenticating..." : "Log in"}
                                 </button>
                             </div>

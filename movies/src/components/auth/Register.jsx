@@ -4,6 +4,7 @@ import Loader from '../layout/Loader';
 import toast from 'react-hot-toast';
 import MetaData from '../other/MetaData';
 import { useRegisterMutation } from '../redux/api/authApi';
+import { useSelector } from 'react-redux';
 
 //import css
 import "../auth/Register.css";
@@ -20,14 +21,28 @@ const Register = () => {
     const { name, email, password } = user;
 
     const [register, { isLoading, error, data }] = useRegisterMutation();
+    const { isAuthenticated } = useSelector((state) => state.auth);
+
+    console.log("***************");
+    console.log(isAuthenticated);
+    console.log("***************");
+
+    console.log("***************");
+    console.log(data);
+    console.log("***************");
+
 
     useEffect(() => {
+        if (data) {
+            toast.success(`Account created successfully. Logging in...`);
 
+            navigate("/profile");
+        }
 
         if (error) {
-            toast.error(error?.data?.message)
+            toast.error(error?.data?.message);
         }
-    }, [error]);
+    }, [error, data]);
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -44,6 +59,8 @@ const Register = () => {
     const onChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
     };
+
+    if (isLoading) return <Loader />
 
 
     return (

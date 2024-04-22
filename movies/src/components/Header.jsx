@@ -7,7 +7,6 @@ import { useLazyLogoutQuery } from './redux/api/authApi'
 
 
 //import slike
-import Logo from "../assets/images/logo-movieFans.png"
 import Logo2 from "../assets/images/logo2.png"
 import Icon1 from "../assets/images/icons8-clapperboard-48.png"
 import Search from "../assets/icons/icon-search.png"
@@ -31,7 +30,6 @@ import { FaArrowRight } from "react-icons/fa";
 
 const Header = () => {
     const navigate = useNavigate()
-    const { isLoading } = useGetMeQuery();
     const [logout] = useLazyLogoutQuery();
     const { user } = useSelector((state) => state.auth);
     const [isSideMenuOpen, setIsSideMenuOpen] = useState(null);
@@ -55,6 +53,8 @@ const Header = () => {
         logout();
         navigate(0);
     };
+
+    const { isLoading } = useGetMeQuery();
 
 
 
@@ -162,7 +162,7 @@ const Header = () => {
                                             </li>
 
                                             <li className='dropDownUser-section'>
-                                                <NavLink to="/asdsa" className="dropDownUser-icon">
+                                                <NavLink to="/profile" className="dropDownUser-icon">
                                                     <img src={iconUser} width={30} height={30} alt="" />
                                                     Profile
                                                 </NavLink>

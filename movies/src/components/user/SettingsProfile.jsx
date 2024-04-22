@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -12,6 +13,9 @@ import "../user/SettingsProfile.css";
 import TabNavigationProfile from '../other/TabNavigationProfile';
 
 const SettingsProfile = () => {
+    const navigate = useNavigate()
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
     return (
         <div className="header-Settings">
             <div className="head-WatchList">

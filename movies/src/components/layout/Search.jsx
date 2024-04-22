@@ -54,47 +54,46 @@ const Search = () => {
 
         <>
             <MetaData title={"Search"} />
-            <section className="search-section">
 
-                <h1 className='title-search'>Serch for the movies:</h1>
+            <h1 className='title-search'>Serch for the movies & TV Shows:</h1>
 
-                <div className="input-search">
-                    <div className="search-input">
-                        <div className="search-conteiner">
-                            <form action="search-bar">
-                                <input
-                                    className="searchInput"
-                                    type="text"
-                                    value={searchValue}
-                                    onChange={(e) => setSearchValue(e.target.value)}
-                                    placeholder='Search for the Movies...'
-                                />
-                            </form>
-                        </div>
+            <div className="input-search">
+                <div className="search-input">
+                    <div className="search-conteiner">
+                        <form action="search-bar">
+                            <input
+                                className="searchInput"
+                                type="text"
+                                value={searchValue}
+                                onChange={(e) => setSearchValue(e.target.value)}
+                                placeholder='Search for the Movies...'
+                            />
+                        </form>
                     </div>
                 </div>
+            </div>
 
-                <div className="content-Moviesearch">
-                    {searchResults.map((result) => (
+            <div className="content-Moviesearch">
+                {searchResults.map((result) => (
 
-                        <div key={result.id} className="searchMovies-card">
-                            <div className="searchallmovies-cardtop">
-                                <NavLink to={`/movies/${result.id}`}>
-                                    <img src={`https://image.tmdb.org/t/p/w300${result.poster_path}`} alt="" className="searchMovie-img" />
-                                </NavLink>
-                            </div>
-                            <div className="searchMovie-bottom">
-                                <p className="searchMovie-name">{result.title}</p>
-                                <p className="searchmovie-rating">Rating: {result.vote_average}</p>
-                                <div className="movieDetails-buttons">
-                                    <button className='favorite-btn'>Add to Favorite<img src={AddFavoritList} alt="" className='icon-favorite' /></button>
-                                    <button className='watchlist-btn'>Add to Watch list<img src={AddWatchList} alt="" className='icon-watchlist' /> </button>
-                                </div>
+                    <div key={result.id} className="searchMovies-card">
+                        <div className="searchallmovies-cardtop">
+                            <NavLink to={`/movies/${result.id}`}>
+                                <img src={`https://image.tmdb.org/t/p/w300${result.poster_path}`} alt="" className="searchMovie-img" />
+                            </NavLink>
+                        </div>
+                        <div className="searchMovie-bottom">
+                            <p className="searchMovie-name">{result.title}</p>
+                            <p className="searchmovie-rating">Rating: {result.vote_average}</p>
+                            <div className="movieDetails-buttons">
+                                <button className='favorite-btn'>Add to Favorite<img src={AddFavoritList} alt="" className='icon-favorite' /></button>
+                                <button className='watchlist-btn'>Add to Watch list<img src={AddWatchList} alt="" className='icon-watchlist' /> </button>
                             </div>
                         </div>
-                    ))}
-                </div>
-            </section>
+                    </div>
+                ))}
+            </div>
+
         </>
     )
 }

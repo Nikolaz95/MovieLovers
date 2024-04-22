@@ -21,7 +21,7 @@ const Content = () => {
             <div className='content-body'>
 
                 {/* component od Trending movies */}
-                {/* <TrendigMovie /> */}
+                <TrendigMovie />
 
 
                 <div className="smal-title">

@@ -29,8 +29,12 @@ export const registerUser = catchAsyncErrors(async (req, res, next) => {
 export const loginUser = catchAsyncErrors(async (req, res, next) => {
     const { email, password } = req.body;
 
-    if (!email || !password) {
-        return next(new ErrorHandler('Please enter your  Email & Password', 400))
+    if (!email) {
+        return next(new ErrorHandler('Please enter your Email !!!', 400))
+    }
+
+    if (!password) {
+        return next(new ErrorHandler('Please enter your Password', 400))
     }
 
 
@@ -75,7 +79,7 @@ export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-// Update paswword  =>  /api/v1/password/update
+// Update paswword  =>  /api/password/update
 export const updatePassword = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req?.user?._id).select("+password");
 
