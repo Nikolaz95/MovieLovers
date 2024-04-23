@@ -1,5 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useUpdateProfileMutation } from '../redux/api/userApi';
+import { useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
 
 
 
@@ -14,8 +17,44 @@ import TabNavigationProfile from '../other/TabNavigationProfile';
 
 const SettingsProfile = () => {
     const navigate = useNavigate()
+    //update name i email
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+
+    const [updateProfile, { isLoading, error, isSuccess }] =
+        useUpdateProfileMutation();
+
+    const { user } = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        if (user) {
+            setName(user?.name);
+            setEmail(user?.email);
+        }
+        if (error) {
+            toast.error(error?.data?.message);
+        }
+        if (isSuccess) {
+            toast.success("User Updated");
+            navigate("/me/profile");
+        }
+
+
+    }, [user, error, isSuccess]);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        const userData = {
+            name,
+            email,
+        }
+
+        updateProfile(userData);
+    }
+
+
+
     return (
         <div className="header-Settings">
             <div className="head-WatchList">
@@ -36,8 +75,23 @@ const SettingsProfile = () => {
                     <form action="" className='form-updateProfile'>
                         <label>Your Account Name: <br />
                             <input type="text"
-                                placeholder='account name...' />
+                                placeholder='account name...'
+                                name='name'
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
                         </label>
+
+                        <label>Email: <br />
+                            <input type="email"
+                                placeholder='fake@email.com.....'
+                                name='email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </label>
+
+
                         <label>Old Password: <br />
                             <input type="password"
                                 placeholder='old password...' />
@@ -48,18 +102,18 @@ const SettingsProfile = () => {
                                 placeholder='new password...' />
                         </label>
 
-
-                        <label>Confirm New Password: <br />
-                            <input type="password"
-                                placeholder='confirm new password...' />
-                        </label>
-
                     </form>
 
                     <div className="buttons-update">
-                        <button className="buttons-save" >Save update</button>
-                        <button className="buttons-delete" >Delete account</button>
-                        <button className="buttons-lgout" >Log Out</button>
+                        <button className="buttons-save" onClick={submitHandler} /* disabled={isLoading} */ >
+                            {isLoading ? "Updating...." : "Save update"}
+                        </button>
+                        <button className="buttons-delete" >
+                            Delete account
+                        </button>
+                        <button className="buttons-lgout" >
+                            Log Out
+                        </button>
                     </div>
                 </div>
             </div>

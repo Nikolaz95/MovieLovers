@@ -36,7 +36,7 @@ const Register = () => {
         if (data) {
             toast.success(`Account created successfully. Logging in...`);
 
-            navigate("/profile");
+            navigate("/me/profile");
         }
 
         if (error) {

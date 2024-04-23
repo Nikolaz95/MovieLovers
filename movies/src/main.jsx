@@ -77,31 +77,31 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/profile",
+        path: "/me/profile",
         element: <ProfileAccount />
       },
 
       {
-        path: "/watchList",
+        path: "/me/watchList",
         element: <WatchList />
       },
 
       {
-        path: "/favoritList",
+        path: "/me/favoritList",
         element: <FavoritList />
       },
 
       {
-        path: "/ratingList",
+        path: "/me/ratingList",
         element: <RatingList />
       },
       {
-        path: "/favoritActor",
+        path: "/me/favoritActor",
         element: <ActorFavorit />
       },
 
       {
-        path: "/settings",
+        path: "/me/settings",
         element: <SettingsProfile />
       },
 

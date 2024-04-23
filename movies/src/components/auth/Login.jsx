@@ -45,7 +45,7 @@ const Login = () => {
                     color: "#ffffff",
                 },
             });
-            navigate("/profile")
+            navigate("/me/profile")
         }
 
         if (error) {
