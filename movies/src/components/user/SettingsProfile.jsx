@@ -32,6 +32,7 @@ const SettingsProfile = () => {
             setEmail(user?.email);
         }
         if (error) {
+            console.error("Error updating profile:", error);
             toast.error(error?.data?.message);
         }
         if (isSuccess) {

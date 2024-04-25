@@ -79,7 +79,7 @@ export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-// Update paswword  =>  /api/password/update
+/* // Update paswword  =>  /api/password/update
 export const updatePassword = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req?.user?._id).select("+password");
 
@@ -97,12 +97,14 @@ export const updatePassword = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({
         success: true,
     });
-});
+}); */
 
 
 
 // Update User Profile  =>  /api/me/update
 export const updateProfile = catchAsyncErrors(async (req, res, next) => {
+
+    //update username and email 
 
     const newUserData = {
         name: req.body.name,
@@ -112,9 +114,21 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findByIdAndUpdate(req.user._id, newUserData, {
         new: true,
     });
+    // Update password
+    const updatePassword = await User.findById(req.user._id).select('+password');
+
+    const isPasswordMatched = await updatePassword.comparePassword(req.body.oldPassword);
+
+    if (!isPasswordMatched) {
+        return next(new ErrorHandler('Old password is incorrect', 400));
+    }
+
+    updatePassword.password = req.body.password;
+    await updatePassword.save();
 
     res.status(200).json({
         user,
+        success: true,
     });
 });
 
