@@ -23,6 +23,7 @@ import TvShowsDetails from './components/pages/TvShowsDetails.jsx';
 import { Provider } from 'react-redux';
 import { store } from './components/redux/store.js';
 import { Toaster } from 'react-hot-toast';
+import ProtectedRoute from './components/auth/ProtectedRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -78,17 +79,26 @@ const router = createBrowserRouter([
 
       {
         path: "/me/profile",
-        element: <ProfileAccount />
+        element:
+          <ProtectedRoute>
+            <ProfileAccount />
+          </ProtectedRoute>
       },
 
       {
         path: "/me/watchList",
-        element: <WatchList />
+        element:
+          <ProtectedRoute>
+            <WatchList />
+          </ProtectedRoute>
       },
 
       {
         path: "/me/favoritList",
-        element: <FavoritList />
+        element:
+          <ProtectedRoute>
+            <FavoritList />
+          </ProtectedRoute>
       },
 
       {
@@ -97,12 +107,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/me/favoritActor",
-        element: <ActorFavorit />
+        element:
+          <ProtectedRoute>
+            <ActorFavorit />
+          </ProtectedRoute>
+        /* element: <ActorFavorit /> */
       },
 
       {
         path: "/me/settings",
-        element: <SettingsProfile />
+        element:
+          <ProtectedRoute>
+            <SettingsProfile />
+          </ProtectedRoute>
       },
 
     ]
