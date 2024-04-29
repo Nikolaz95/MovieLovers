@@ -2,6 +2,7 @@ import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
 import User from "../models/user.js";
 import ErrorHandler from "../utils/errorHandler.js";
 import sendToken from "../utils/sendToken.js";
+import { delete_file, upload_file } from "../utils/cloudinary.js"
 
 
 //register user => /api/register
@@ -79,27 +80,6 @@ export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-/* // Update paswword  =>  /api/password/update
-export const updatePassword = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req?.user?._id).select("+password");
-
-    //check the previous  user password
-
-    const isPasswordMatched = await user.comparePassword(req.body.oldPassword)
-
-    if (!isPasswordMatched) {
-        return next(new ErrorHandler("Old password is incorrect", 400))
-    }
-
-    user.password = req.body.password;
-    user.save();
-
-    res.status(200).json({
-        success: true,
-    });
-}); */
-
-
 
 // Update User Profile  =>  /api/me/update
 export const updateProfile = catchAsyncErrors(async (req, res, next) => {
@@ -115,17 +95,7 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findByIdAndUpdate(req.user._id, newUserData, {
         new: true,
     });
-    // Update password
-    const updatePassword = await User.findById(req.user._id).select('+password');
 
-    const isPasswordMatched = await updatePassword.comparePassword(req.body.oldPassword);
-
-    if (!isPasswordMatched) {
-        return next(new ErrorHandler('Old password is incorrect', 400));
-    }
-
-    updatePassword.password = req.body.password;
-    await updatePassword.save();
 
     res.status(200).json({
         user,
@@ -134,6 +104,33 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
 });
 
 
+// Upload user avatar =>  /api/me/update
+export const uploadAvatarProfile = catchAsyncErrors(async (req, res, next) => {
+
+    const avatarResponse = await upload_file(req.body.avatar, "MovieLovers/profileImg");
+
+
+    //Remove previous avatar
+    if (req?.user?.avatar?.url) {
+        await delete_file(req?.user?.avatar?.public_id);
+    }
+
+    const user = await User.findByIdAndUpdate(req?.user?._id, {
+        avatar: avatarResponse,
+    });
+
+    res.status(200).json({
+        user,
+    });
+});
+
+
+
+
+
+
+
+/* admin dio */
 // Get all users - admin   =>  /api/admin/users
 export const allUsers = catchAsyncErrors(async (req, res, next) => {
 

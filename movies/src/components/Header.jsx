@@ -12,7 +12,9 @@ import Icon1 from "../assets/images/icons8-clapperboard-48.png"
 import Search from "../assets/icons/icon-search.png"
 import LogIn from "../assets/icons/icon-login.png"
 import TvShows from "../assets/icons/icon-tvs.png"
-import avatarDefault from "../assets/icons/icons-customer.png"
+/* import avatarDefault from "../assets/icons/icons-customer.png" */
+import avatarDefault from "../assets/images/avatar-profile.jpg"
+
 
 import DashBoard from "../assets/icons/icon-dashboard.png"
 import iconUser from "../assets/icons/icon2-user.png"
@@ -162,7 +164,7 @@ const Header = () => {
                                             </li>
 
                                             <li className='dropDownUser-section'>
-                                                <NavLink to="/profile" className="dropDownUser-icon">
+                                                <NavLink to="/me/profile" className="dropDownUser-icon">
                                                     <img src={iconUser} width={30} height={30} alt="" />
                                                     Profile
                                                 </NavLink>

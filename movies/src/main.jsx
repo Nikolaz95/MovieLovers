@@ -111,7 +111,6 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <ActorFavorit />
           </ProtectedRoute>
-        /* element: <ActorFavorit /> */
       },
 
       {

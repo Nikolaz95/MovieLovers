@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom';
 import TabNavigationProfile from '../other/TabNavigationProfile';
 import { useSelector } from 'react-redux';
+import { useUploadAvatarMutation } from '../redux/api/userApi';
+import toast from 'react-hot-toast';
+
 
 
 //import css
@@ -9,8 +12,8 @@ import "../user/ProfileAccount.css";
 
 
 //import img
-import slika from "../../assets/images/avatar-profile.jpg"
-import avatarDefault from "../../assets/icons/icons-customer.png"
+import avatarDefault from "../../assets/images/avatar-profile.jpg"
+/* import avatarDefault from "../../assets/icons/icons-customer.png" */
 
 
 //import icons
@@ -19,10 +22,21 @@ import AddCamera from "../../assets/icons/icons-add-camera.png"
 
 const ProfileAccount = () => {
 
+    const navigate = useNavigate()
     const { user } = useSelector((state) => state.auth);
-
     const { isAuthenticated } = useSelector((state) => state.auth);
 
+
+    /* avatar update */
+    const [avatar, setAvatar] = useState("");
+    const [avatarPreview, setAvatarPreview] = useState(
+        user?.avatar ? user?.avatar?.url : avatarDefault
+    );
+
+    const [uploadAvatar, { isLoading, error, isSuccess }] = useUploadAvatarMutation();
+
+
+    /* za login */
     console.log("***************");
     console.log(isAuthenticated);
     console.log("***************");
@@ -30,6 +44,43 @@ const ProfileAccount = () => {
     console.log("***************");
     console.log(user);
     console.log("***************");
+
+    useEffect(() => {
+
+        if (error) {
+            toast.error(error?.data?.message);
+        }
+        if (isSuccess) {
+            toast.success("Avatar Uploaded");
+            navigate("/me/profile");
+        }
+
+
+    }, [error, isSuccess]);
+
+
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const userData = {
+            avatar,
+        };
+        console.log("***************");
+        console.log(userData);
+        console.log("***************");
+    };
+
+
+    const onChange = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setAvatarPreview(reader.result);
+                setAvatar(reader.result);
+            }
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    };
 
 
 
@@ -47,10 +98,19 @@ const ProfileAccount = () => {
                 </div>
 
 
-                <div className="account-content">
+                <div className="account-content" onSubmit={submitHandler}>
                     <div className="accoutn-profileImg">
-                        <img src={slika} alt="Person" className="Profileimg" />
-                        <img src={AddCamera} alt="Person" className="addCamera" />
+                        <img src={avatarPreview} alt="Personaa" className="Profileimg" />
+                        <input
+                            type="file"
+                            name="file"
+                            id="file"
+                            accept="image/png, image/jpeg"
+                            onChange={onChange}
+                        />
+                        <label for="file">
+                            <img src={AddCamera} alt="Person" className="addCamera" />
+                        </label>
                     </div>
 
                     <div className="account-info">

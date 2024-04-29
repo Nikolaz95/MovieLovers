@@ -22,7 +22,6 @@
     align-items: center;
     border: 1px solid black;
     padding: 20px;
-    gap: 40px;
 }
 
 .Profileimg{
@@ -33,14 +32,17 @@
     cursor: pointer;
 }
 
+input[type="file"] {
+    display: none;
+  }
+
+
 .addCamera {
     position: relative;
-    top: 15px;
-    right: 80px;
-    /* top: 620px; */
+    top: -57px;
+    right: -93px;
     width: 55px;
     height: 55px;
-    /* left: 780px; */
     cursor: pointer;
 }
 
@@ -66,11 +68,11 @@
 
     .addCamera {
         position: relative;
-    top: -48px;
-    left: 284px;
-    width: 55px;
-    height: 55px;
-    cursor: pointer;
+        top: -57px;
+        left: 101px;
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
     }
 }
 
@@ -86,12 +88,13 @@
 
     .addCamera {
         position: relative;
-    top: -48px;
-    left: 220px;
-    width: 55px;
-    height: 55px;
-    cursor: pointer;
+        top: -58px;
+        left: 80px;
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
     }
+
 }
 
 @media only screen and (max-width: 370px) {
@@ -105,11 +108,11 @@
 
     .addCamera {
         position: relative;
-    top: -48px;
-    left: 175px;
-    width: 55px;
-    height: 55px;
-    cursor: pointer;
+        top: -58px;
+        left: 60px;
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
     }
 }
 
