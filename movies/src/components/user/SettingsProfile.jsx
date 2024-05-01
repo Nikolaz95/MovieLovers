@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useUpdateProfileMutation, useUploadAvatarMutation } from '../redux/api/userApi';
+import { useDeleteAccountMutation, useUpdateProfileMutation, useUploadAvatarMutation } from '../redux/api/userApi';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
@@ -28,6 +28,8 @@ const SettingsProfile = () => {
     const [uploadAvatar, { isLoading: uploadLoading, error: uploadError, isSuccess: uploadSuccess }] =
         useUploadAvatarMutation();
 
+    const [deleteAccount, { isLoading: deleteLoading, error: deleteError, isSuccess: deleteSuccess }] = useDeleteAccountMutation()
+
     /* avatar update */
     const [avatar, setAvatar] = useState("");
     const [avatarPreview, setAvatarPreview] = useState(
@@ -37,6 +39,7 @@ const SettingsProfile = () => {
 
     /* const [uploadAvatar, { isLoading, error, isSuccess }] = useUploadAvatarMutation(); */
 
+    //update user and password
     useEffect(() => {
         if (user) {
             setName(user?.name);
@@ -54,6 +57,7 @@ const SettingsProfile = () => {
 
     }, [user, updateError, updateSuccess]);
 
+    //upload profile img
     useEffect(() => {
 
         if (uploadError) {
@@ -66,6 +70,17 @@ const SettingsProfile = () => {
 
 
     }, [uploadError, uploadSuccess]);
+
+    //delete accoutn
+    useEffect(() => {
+        if (deleteError) {
+            toast.error(deleteError?.data?.message);
+        }
+        if (deleteSuccess) {
+            toast.success("Account Deleted");
+            navigate("/");
+        }
+    }, [deleteError, deleteSuccess]);
 
     const updUsername = (e) => {
         e.preventDefault();
@@ -92,6 +107,10 @@ const SettingsProfile = () => {
         console.log("***************");
         console.log(file);
         console.log("***************");
+    };
+
+    const handleDeleteAccount = () => {
+        deleteAccount();
     };
 
 
@@ -176,8 +195,8 @@ const SettingsProfile = () => {
                         <button className="buttons-save" /* onClick={submitHandler} */ /* disabled={updateLoading} */ >
                             {updateLoading ? "Updating...." : "Update Password"}
                         </button>
-                        <button className="buttons-delete" >
-                            Delete account
+                        <button className="buttons-delete" onClick={handleDeleteAccount} disabled={deleteLoading}>
+                            {deleteLoading ? "Deleting..." : "Delete Account"}
                         </button>
                         <button className="buttons-lgout" >
                             Log Out

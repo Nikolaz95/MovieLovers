@@ -1,5 +1,5 @@
 import express from "express";
-import { allUsers, deleteUser, getUserDetails, getUserProfile, loginUser, logout, registerUser, /* updatePassword, */ updateProfile, updateUser, uploadAvatarProfile } from "../controllers/authControllers.js";
+import { allUsers, deleteAccount, deleteUser, getUserDetails, getUserProfile, loginUser, logout, registerUser, /* updatePassword, */ updateProfile, updateUser, uploadAvatarProfile } from "../controllers/authControllers.js";
 import { authorizeRoles, isAuthenticatedUser } from "../middlewares/auth.js";
 const router = express.Router();
 
@@ -17,7 +17,8 @@ router
 router
     .route("/me/update")
     .put(isAuthenticatedUser, updateProfile)
-    .put(isAuthenticatedUser, uploadAvatarProfile);
+    .put(isAuthenticatedUser, uploadAvatarProfile)
+    .delete(isAuthenticatedUser, deleteAccount);
 
 
 

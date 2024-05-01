@@ -85,17 +85,14 @@ export const getUserProfile = catchAsyncErrors(async (req, res, next) => {
 export const updateProfile = catchAsyncErrors(async (req, res, next) => {
 
     //update username and email 
-
     const newUserData = {
         name: req.body.name,
         email: req.body.email,
     }
     console.log(req.body)
-
     const user = await User.findByIdAndUpdate(req.user._id, newUserData, {
         new: true,
     });
-
 
     res.status(200).json({
         user,
@@ -108,8 +105,6 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
 export const uploadAvatarProfile = catchAsyncErrors(async (req, res, next) => {
 
     const avatarResponse = await upload_file(req.body.avatar, "MovieLovers/profileImg");
-
-
     //Remove previous avatar
     if (req?.user?.avatar?.url) {
         await delete_file(req?.user?.avatar?.public_id);
@@ -121,6 +116,29 @@ export const uploadAvatarProfile = catchAsyncErrors(async (req, res, next) => {
 
     res.status(200).json({
         user,
+    });
+});
+
+// Delete User Account => /api/update
+export const deleteAccount = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+        return next(
+            new ErrorHandler(`User not found with id: ${req.user._id}`, 404)
+        );
+    }
+
+    // Remove user avatar from cloudinary
+    if (user.avatar?.public_id) {
+        await delete_file(user.avatar.public_id);
+    }
+
+    // Delete the user account
+    await user.deleteOne();
+
+    res.status(200).json({
+        success: true,
     });
 });
 
