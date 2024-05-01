@@ -12,17 +12,16 @@ router.route("/logout").get(logout);
 
 router
     .route("/me")
-    .get(isAuthenticatedUser, getUserProfile)
-    .put(isAuthenticatedUser, uploadAvatarProfile);
+    .get(isAuthenticatedUser, getUserProfile);
 
 router
     .route("/me/update")
     .put(isAuthenticatedUser, updateProfile)
-/* .put(isAuthenticatedUser, uploadAvatarProfile); */
+    .put(isAuthenticatedUser, uploadAvatarProfile);
 
 
 
-
+/* admin router */
 
 router
     .route("/admin/users")
