@@ -19,22 +19,26 @@ const SettingsProfile = () => {
     const navigate = useNavigate()
     const { user } = useSelector((state) => state.auth);
     const { isAuthenticated } = useSelector((state) => state.auth);
+
     //update name i email
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-
-    const [updateProfile, { isLoading: updateLoading, error: updateError, isSuccess: updateSuccess }] =
-        useUpdateProfileMutation();
-    const [uploadAvatar, { isLoading: uploadLoading, error: uploadError, isSuccess: uploadSuccess }] =
-        useUploadAvatarMutation();
-
-    const [deleteAccount, { isLoading: deleteLoading, error: deleteError, isSuccess: deleteSuccess }] = useDeleteAccountMutation()
 
     /* avatar update */
     const [avatar, setAvatar] = useState("");
     const [avatarPreview, setAvatarPreview] = useState(
         user?.avatar ? user?.avatar?.url : avatarDefault
     );
+
+
+    const [updateProfile, { isLoading: updateLoading, error: updateError, isSuccess: updateSuccess }] =
+        useUpdateProfileMutation();
+
+    const [uploadAvatar, { isLoading: uploadLoading, error: uploadError, isSuccess: uploadSuccess }] =
+        useUploadAvatarMutation();
+
+    const [deleteAccount, { isLoading: deleteLoading, error: deleteError, isSuccess: deleteSuccess }] = useDeleteAccountMutation()
+
 
 
     /* const [uploadAvatar, { isLoading, error, isSuccess }] = useUploadAvatarMutation(); */
@@ -101,12 +105,27 @@ const SettingsProfile = () => {
     const submitAvatar = (e) => {
         e.preventDefault();
 
-        const file = e.target.files[0]; // Get the selected file from the event
-        setAvatar(file);
+        const userData = {
+            avatar,
+        };
 
-        console.log("***************");
-        console.log(file);
-        console.log("***************");
+        console.log("************");
+        console.log(userData);
+        console.log("************");
+        uploadAvatar(userData)
+    };
+
+
+    /* avatar */
+    const onChange = (e) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.readyState === 2) {
+                setAvatarPreview(reader.result);
+                setAvatar(reader.result);
+            }
+        };
+        reader.readAsDataURL(e.target.files[0]);
     };
 
     const handleDeleteAccount = () => {
@@ -126,16 +145,16 @@ const SettingsProfile = () => {
 
             <div className="content-update">
                 <div className="profileUpdate-kontainer">
-                    <div className="profileUpdate-img">
+                    <div className="profileUpdate-img" onSubmit={submitAvatar}>
                         <img src={avatarPreview} alt="" className="Profileimg-Setting" />
                         <input
                             type="file"
                             name="file"
                             id="file"
-                            accept="image/png, image/jpeg"
-                            onChange={submitAvatar}
+                            accept="images/*"
+                            onChange={onChange}
                         />
-                        <label for="file">
+                        <label htmlFor="file">
                             <img src={AddCamera} alt="Person" className="addCamera" />
                         </label>
                     </div>

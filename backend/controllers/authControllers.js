@@ -1,8 +1,8 @@
 import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
 import User from "../models/user.js";
+import { delete_file, upload_file } from "../utils/cloudinary.js";
 import ErrorHandler from "../utils/errorHandler.js";
 import sendToken from "../utils/sendToken.js";
-import { delete_file, upload_file } from "../utils/cloudinary.js"
 
 
 //register user => /api/register
@@ -104,7 +104,7 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
 // Upload user avatar =>  /api/me/update
 export const uploadAvatarProfile = catchAsyncErrors(async (req, res, next) => {
 
-    const avatarResponse = await upload_file(req.body.avatar, "MovieLovers/profileImg");
+    const avatarResponse = await upload_file(req.body.avatar, "MovieLovers/profiles");
     //Remove previous avatar
     if (req?.user?.avatar?.url) {
         await delete_file(req?.user?.avatar?.public_id);
