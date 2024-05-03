@@ -59,10 +59,38 @@ label,input  {
     margin-bottom: 10px;
 }
 
+
+.btn-updatePicture {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.buttons-updPicture {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.buttons-cancelUpdPic {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.savePicture, .cancelUpdPic {
+    width: 40px;
+    height: 40px;
+}
+
 .btn-update{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 10px;
 }
 
 .buttons-updUsername, .buttons-email{
@@ -75,12 +103,19 @@ label,input  {
     color: white;
 }
 
-.buttons-update{
+.buttons-button{
     display: flex;
     flex-direction: column;
     gap: 20px;
     text-align: center;
 }
+
+.buttons-save, .buttons-delete, .buttons-lgout{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 
 .buttons-save {
     font-size: 25px;
@@ -106,6 +141,11 @@ label,input  {
     border-radius: 10px;
     padding: 10px;
     color: white;
+}
+
+.iconbtn {
+    width: 40px;
+    height: 40px;
 }
 
 

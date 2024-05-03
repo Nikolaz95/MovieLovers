@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useDeleteAccountMutation, useUpdateProfileMutation, useUploadAvatarMutation } from '../redux/api/userApi';
+import { useDeleteAccountMutation, useUpdateProfileMutation } from '../redux/api/userApi';
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 
@@ -10,6 +10,15 @@ import toast from 'react-hot-toast';
 import avatarDefault from "../../assets/images/avatar-profile.jpg"
 //import icons
 import AddCamera from "../../assets/icons/icons-add-camera.png"
+import UpdatePicture from "../../assets/icons/icon-save.png"
+import CancelUpdPicture from "../../assets/icons/icon-cancelPic.png"
+import DeleteAccoutn from "../../assets/icons/delete-account.png"
+import SaveUpdate from "../../assets/icons/icon-save.png"
+import LogOut from "../../assets/icons/icon-logout2.png"
+
+
+
+
 
 //import css
 import "../user/SettingsProfile.css";
@@ -23,19 +32,26 @@ const SettingsProfile = () => {
     //update name i email
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [originalName, setOriginalName] = useState(""); // Track original name for cancel update
+    const [originalEmail, setOriginalEmail] = useState(""); // Track original name for cancel update
+
+
 
     /* avatar update */
     const [avatar, setAvatar] = useState("");
     const [avatarPreview, setAvatarPreview] = useState(
-        user?.avatar ? user?.avatar?.url : avatarDefault
+        user?.avatar ? user?.avatar : avatarDefault
     );
+
+    /* da sakrije button za sacuvat sliku i otkazat */
+    const [isImageSelected, setIsImageSelected] = useState(false);
 
 
     const [updateProfile, { isLoading: updateLoading, error: updateError, isSuccess: updateSuccess }] =
         useUpdateProfileMutation();
 
-    const [uploadAvatar, { isLoading: uploadLoading, error: uploadError, isSuccess: uploadSuccess }] =
-        useUploadAvatarMutation();
+    /* const [uploadAvatar, { isLoading: uploadLoading, error: uploadError, isSuccess: uploadSuccess }] =
+        useUploadAvatarMutation(); */
 
     const [deleteAccount, { isLoading: deleteLoading, error: deleteError, isSuccess: deleteSuccess }] = useDeleteAccountMutation()
 
@@ -47,7 +63,9 @@ const SettingsProfile = () => {
     useEffect(() => {
         if (user) {
             setName(user?.name);
+            setOriginalName(user?.name);
             setEmail(user?.email);
+            setOriginalEmail(user?.email);
         }
         if (updateError) {
             console.error("Error updating profile:", updateError);
@@ -64,16 +82,16 @@ const SettingsProfile = () => {
     //upload profile img
     useEffect(() => {
 
-        if (uploadError) {
-            toast.error(uploadError?.data?.message);
+        if (updateError) {
+            toast.error(updateError?.data?.message);
         }
-        if (uploadSuccess) {
+        if (updateSuccess) {
             toast.success("Avatar Uploaded");
             navigate("/me/profile");
         }
 
 
-    }, [uploadError, uploadSuccess]);
+    }, [updateError, updateSuccess]);
 
     //delete accoutn
     useEffect(() => {
@@ -102,6 +120,26 @@ const SettingsProfile = () => {
         updateProfile(userData);
     };
 
+
+    const cancelUpdate = () => {
+        setName(originalName); // Revert back to original name
+        toast.error("Cancelled updating username.");
+    };
+
+    const cancelUpdateEmail = () => {
+        setEmail(originalEmail); // Revert back to original email
+        toast.error("Cancelled updating email.", {
+            duration: 4000,
+        });
+    };
+
+    const cancelUpdatePicture = () => {
+        setAvatarPreview(user?.avatar ? user?.avatar : avatarDefault);
+        setAvatar("");
+        setIsImageSelected(false); // Reset isImageSelected state
+        toast.error("Cancelled chosen Profile picture.");
+    }
+
     const submitAvatar = (e) => {
         e.preventDefault();
 
@@ -112,7 +150,7 @@ const SettingsProfile = () => {
         console.log("************");
         console.log(userData);
         console.log("************");
-        uploadAvatar(userData)
+        updateProfile(userData)
     };
 
 
@@ -123,6 +161,7 @@ const SettingsProfile = () => {
             if (reader.readyState === 2) {
                 setAvatarPreview(reader.result);
                 setAvatar(reader.result);
+                setIsImageSelected(true); /* da pokaze buttons za sacuvat profil pic ili otkazat */
             }
         };
         reader.readAsDataURL(e.target.files[0]);
@@ -131,6 +170,7 @@ const SettingsProfile = () => {
     const handleDeleteAccount = () => {
         deleteAccount();
     };
+
 
 
     return (
@@ -145,7 +185,7 @@ const SettingsProfile = () => {
 
             <div className="content-update">
                 <div className="profileUpdate-kontainer">
-                    <div className="profileUpdate-img" onSubmit={submitAvatar}>
+                    <form className="profileUpdate-img" onSubmit={submitAvatar}>
                         <img src={avatarPreview} alt="" className="Profileimg-Setting" />
                         <input
                             type="file"
@@ -157,7 +197,20 @@ const SettingsProfile = () => {
                         <label htmlFor="file">
                             <img src={AddCamera} alt="Person" className="addCamera" />
                         </label>
-                    </div>
+
+                        <div className="btn-updatePicture">
+                            {isImageSelected && (
+                                <>
+                                    <button className="buttons-updPicture" onClick={submitAvatar} disabled={updateLoading}>
+                                        Save picture <img src={UpdatePicture} alt="Person" className="savePicture" />
+                                    </button>
+                                    <button className="buttons-cancelUpdPic" onClick={cancelUpdatePicture} disabled={updateLoading}>
+                                        Cancel  <img src={CancelUpdPicture} alt="Person" className="cancelUpdPic" />
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                    </form>
 
                     <form action="" className='form-updateProfile'>
                         <label>Your Account Name: <br />
@@ -172,9 +225,14 @@ const SettingsProfile = () => {
 
                         <div className="btn-update">
                             {name !== user?.name && (
-                                <button className="buttons-updUsername" onClick={updUsername} disabled={updateLoading}>
-                                    {updateLoading ? "Updating...." : "Update Username"}
-                                </button>
+                                <>
+                                    <button className="buttons-updUsername" onClick={updUsername} disabled={updateLoading}>
+                                        {updateLoading ? "Updating...." : "Update Username"}
+                                    </button>
+                                    <button className="buttons-cancelUpdname" onClick={cancelUpdate}>
+                                        Cancel Update
+                                    </button>
+                                </>
                             )}
                         </div>
 
@@ -191,9 +249,14 @@ const SettingsProfile = () => {
 
                         <div className="btn-update">
                             {email !== user?.email && (
-                                <button className="buttons-email" onClick={updEmail} disabled={updateLoading}>
-                                    {updateLoading ? "Updating...." : "Update email"}
-                                </button>
+                                <>
+                                    <button className="buttons-email" onClick={updEmail} disabled={updateLoading}>
+                                        {updateLoading ? "Updating...." : "Update email"}
+                                    </button>
+                                    <button className="buttons-cancelUpdname" onClick={cancelUpdateEmail}>
+                                        Cancel Update
+                                    </button>
+                                </>
                             )}
                         </div>
 
@@ -210,15 +273,17 @@ const SettingsProfile = () => {
 
                     </form>
 
-                    <div className="buttons-update">
-                        <button className="buttons-save" /* onClick={submitHandler} */ /* disabled={updateLoading} */ >
-                            {updateLoading ? "Updating...." : "Update Password"}
+                    <div className="buttons-button">
+                        <button className="buttons-save" >
+                            {updateLoading ? "Updating...." : "Update Password"} <img src={SaveUpdate} alt="saveUpdate" className="iconbtn" />
                         </button>
+
                         <button className="buttons-delete" onClick={handleDeleteAccount} disabled={deleteLoading}>
-                            {deleteLoading ? "Deleting..." : "Delete Account"}
+                            {deleteLoading ? "Deleting..." : "Delete Account"} <img src={DeleteAccoutn} alt="deleteAccount" className="iconbtn" />
                         </button>
-                        <button className="buttons-lgout" >
-                            Log Out
+
+                        <button className="buttons-lgout">
+                            Log Out <img src={LogOut} alt="logOut" className="iconbtn" />
                         </button>
                     </div>
                 </div>

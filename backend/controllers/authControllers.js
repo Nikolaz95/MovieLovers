@@ -94,15 +94,27 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
         new: true,
     });
 
+    /* Upload user avatar */
+    const avatarResponse = await upload_file(req.body.avatar, "MovieLovers/profiles");
+    //Remove previous avatar
+    if (req?.user?.avatar?.url) {
+        await delete_file(req?.user?.avatar?.public_id);
+    }
+
+    const UploadAvatar = await User.findByIdAndUpdate(req?.UploadAvatar?._id, {
+        avatar: avatarResponse,
+    });
+
     res.status(200).json({
         user,
+        UploadAvatar,
         success: true,
     });
 });
 
 
 // Upload user avatar =>  /api/me/update
-export const uploadAvatarProfile = catchAsyncErrors(async (req, res, next) => {
+/* export const uploadAvatarProfile = catchAsyncErrors(async (req, res, next) => {
 
     const avatarResponse = await upload_file(req.body.avatar, "MovieLovers/profiles");
     //Remove previous avatar
@@ -117,7 +129,7 @@ export const uploadAvatarProfile = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({
         user,
     });
-});
+}); */
 
 // Delete User Account => /api/update
 export const deleteAccount = catchAsyncErrors(async (req, res, next) => {

@@ -36,7 +36,7 @@ const ProfileAccount = () => {
 
                 <div className="account-content">
                     <div className="accoutn-profileImg">
-                        <img src={avatarDefault} alt="Personaa" className="Profileimg" />
+                        <img src={user?.avatar ? user?.avatar?.url : avatarDefault} alt={user?.name} className="Profileimg" />
                     </div>
 
                     <div className="account-info">
