@@ -142,10 +142,8 @@ const Header = () => {
                             <li onClick={() => setShowDropdown(!showDropdown)} >
                                 <div className="UserNavbar">
                                     <figure>
-                                        <img
-                                            src={user?.avatar
-                                                ? user?.url : avatarDefault}
-                                            alt="User Avatar"
+                                        <img /* src={avatarDefault} */
+                                            src={user?.avatar ? user?.avatar?.url : avatarDefault} alt={user?.name}
                                             className="userIcon"
                                         />
                                     </figure>

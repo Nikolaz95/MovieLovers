@@ -40,8 +40,7 @@ const SettingsProfile = () => {
     /* avatar update */
     const [avatar, setAvatar] = useState("");
     const [avatarPreview, setAvatarPreview] = useState(
-        user?.avatar ? user?.avatar : avatarDefault
-    );
+        user?.avatar ? user?.avatar?.url : avatarDefault);
 
     /* da sakrije button za sacuvat sliku i otkazat */
     const [isImageSelected, setIsImageSelected] = useState(false);
@@ -134,10 +133,11 @@ const SettingsProfile = () => {
     };
 
     const cancelUpdatePicture = () => {
-        setAvatarPreview(user?.avatar ? user?.avatar : avatarDefault);
+        setAvatarPreview(user?.avatar ? user?.avatar?.url : avatarDefault);
         setAvatar("");
         setIsImageSelected(false); // Reset isImageSelected state
         toast.error("Cancelled chosen Profile picture.");
+        navigate("/me/profile");
     }
 
     const submitAvatar = (e) => {
@@ -185,14 +185,14 @@ const SettingsProfile = () => {
 
             <div className="content-update">
                 <div className="profileUpdate-kontainer">
-                    <form className="profileUpdate-img" onSubmit={submitAvatar}>
+                    <form className="profileUpdate-img" /* onSubmit={submitAvatar} */>
                         <img src={avatarPreview} alt="" className="Profileimg-Setting" />
                         <input
                             type="file"
                             name="file"
                             id="file"
                             accept="images/*"
-                            onChange={onChange}
+                        /* onChange={onChange} */
                         />
                         <label htmlFor="file">
                             <img src={AddCamera} alt="Person" className="addCamera" />
