@@ -103,7 +103,10 @@ const router = createBrowserRouter([
 
       {
         path: "/me/ratingList",
-        element: <RatingList />
+        element:
+          <ProtectedRoute>
+            <RatingList />
+          </ProtectedRoute>
       },
       {
         path: "/me/favoritActor",

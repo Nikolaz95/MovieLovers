@@ -306,7 +306,6 @@ const MovieDetails = () => {
                         loop={true}
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
-
                     >
 
                         <div className="actors-content">
